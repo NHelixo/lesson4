@@ -7,6 +7,8 @@ class Subject(models.Model):
 
 class Teacher(models.Model):
     name = models.CharField(max_length=100)
+    
+    related = models.ForeignKey(Subject, related_name="teacher", on_delete=models.DO_NOTHING)
 
 
 class Class(models.Model):
@@ -15,3 +17,5 @@ class Class(models.Model):
 
 class Student(models.Model):
     name = models.CharField(max_length=100)
+
+    related = models.ForeignKey(Class, related_name="student", on_delete=models.DO_NOTHING)
